@@ -1,12 +1,5 @@
-#!/usr/bin/env python3
 """
-train_timegan.py
-Trains a TimeGAN-like model (GRU-based) with:
- - Embedder (E), Recovery (R)
- - Generator (G), Supervisor (S)
- - Discriminator (D)
-Saves checkpoint: models/timegan.pth
-Usage (example):
+Command:
  python train_timegan.py --data_dir data/processed --models_dir models --epochs 2 --batch_size 2
 """
 import os

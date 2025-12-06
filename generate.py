@@ -1,10 +1,5 @@
-#!/usr/bin/env python3
 """
-generate.py
-Loads models/timegan_latest.pth and scaler, generates synthetic sequences.
-Usage:
- python generate.py --models_dir models --data_dir data/processed --out_dir data/generated --n_samples 50
-Outputs:
+Command:
  - data/generated/synthetic.npy  (n_samples x L x D) unscaled (original feature units)
 """
 import os

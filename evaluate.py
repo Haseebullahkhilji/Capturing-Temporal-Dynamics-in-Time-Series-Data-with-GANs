@@ -1,12 +1,5 @@
-#!/usr/bin/env python3
 """
-evaluate.py (robust)
-Performs evaluations between real sequences and generated samples:
- - MMD (RBF)
- - Optional DTW (fastdtw)
- - ACF/PACF comparison
- - Predictive utility: train LSTM on synthetic -> test on real
-Usage:
+Command:
  python evaluate.py --real data/processed/sequences.npy --synth data/generated/synthetic.npy --out_dir results
 """
 import os
@@ -77,11 +70,12 @@ def mean_dtw(real, synth, feature_idx=3, n_pairs=200):
         if feature_idx >= r.shape[1] or feature_idx >= s.shape[1]:
             continue
 
-        # extract 1-D feature sequences
-        r_feat = r[:, feature_idx]
-        s_feat = s[:, feature_idx]
+        # --- FIX APPLIED HERE ---
+        # Extract 1-D feature sequences and RESHAPE to (Length, 1)
+        # This turns scalars into 1-element vectors so scipy.spatial.distance.euclidean accepts them
+        r_feat = r[:, feature_idx].reshape(-1, 1)
+        s_feat = s[:, feature_idx].reshape(-1, 1)
 
-        # FIX: do not index again -> pass directly
         d, _ = fastdtw(r_feat, s_feat, dist=euclidean)
         dists.append(d)
 

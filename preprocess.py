@@ -1,12 +1,7 @@
-#!/usr/bin/env python3
 """
-preprocess.py
-Usage:
+Command:
     python preprocess.py --input data/raw/sp500.csv --out_dir data/processed --seq_len 2 --stride 2
-Produces:
- - data/processed/sequences.npy    (shape: N x L x D)
- - data/processed/scaler.pkl
- - data/processed/meta.json
+
 """
 import os
 import argparse
