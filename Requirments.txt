@@ -1,0 +1,10 @@
+numpy
+pandas
+scikit-learn
+joblib
+torch
+matplotlib
+scipy
+statsmodels
+fastdtw
+umap-learn
